@@ -34,7 +34,8 @@ jobs:
           # upgrade pip
           pip3 install --upgrade pip setuptools==75.0.0
           # install dependencies quietly
-          pip3 install -r requirements.txt &> /dev/null && echo "Dependencies installed" || { echo "Error while installing dependencies"; cat install.log; exit 1; }
+          cat requirements.txt | xargs -n 1 pip3 install -q
+          pip3 install -r requirements.txt 2>&1 | tee install.log && echo "Dependencies installed" || { echo "Error while installing dependencies"; cat install.log; exit 1; }
 
       - name: Build mkdocs
         run: |
