@@ -30,6 +30,7 @@ jobs:
       - name: Install pip requirements
         run: |
           cd wormhole-mkdocs
+          pip3 install testresources
           # upgrade pip
           pip3 install --upgrade pip setuptools==75.0.0
           # install dependencies quietly
