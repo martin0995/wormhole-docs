@@ -31,7 +31,7 @@ jobs:
         run: |
           cd wormhole-mkdocs
           # upgrade pip
-          pip3 install --upgrade pip setuptools==75.6.0
+          pip3 install --upgrade pip setuptools==75.0.0
           # install dependencies quietly
           pip3 install -r requirements.txt &> /dev/null && echo "Dependencies installed" || echo "Error while installing dependencies"
 
